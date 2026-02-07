@@ -1,25 +1,44 @@
+"use client";
+
 import { MapPin, Phone, Building2, CheckCircle, ArrowUpRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { QRBusinessCard } from "./QRBusinessCard";
 
-interface CompanyCardProps {
+export interface CompanyCardProps {
     id: number;
     name: string;
     description: string;
     logo?: string;
     sector: string;
+    sectorId?: string;
     location: string;
     phone: string;
+    email?: string;
+    website?: string;
     isVerified?: boolean;
     rating?: number;
+    size?: "small" | "medium" | "large";
+    lat?: number;
+    lng?: number;
 }
 
-export function CompanyCard({ id, name, description, sector, location, phone, isVerified, rating }: CompanyCardProps) {
+export function CompanyCard({
+    id,
+    name,
+    description,
+    sector,
+    location,
+    phone,
+    email,
+    website,
+    isVerified,
+    rating
+}: CompanyCardProps) {
     return (
         <div className="bg-white rounded-xl border border-slate-200 hover:border-secondary-gold hover:shadow-lg transition-all group flex flex-col h-full overflow-hidden">
             {/* Header / Banner */}
-            <div className="h-24 bg-slate-50 relative">
+            <div className="h-24 bg-gradient-to-br from-slate-50 to-slate-100 relative">
                 <div className="absolute top-4 left-4 flex gap-2">
                     {isVerified && (
                         <div className="bg-white/90 backdrop-blur px-2 py-1 rounded-full flex items-center gap-1 shadow-sm text-xs font-bold text-green-700 border border-green-100">
@@ -27,6 +46,13 @@ export function CompanyCard({ id, name, description, sector, location, phone, is
                             موثق
                         </div>
                     )}
+                </div>
+                {/* QR Button */}
+                <div className="absolute top-4 right-4">
+                    <QRBusinessCard
+                        company={{ name, sector, location, phone, email, website }}
+                        companyId={id}
+                    />
                 </div>
             </div>
 

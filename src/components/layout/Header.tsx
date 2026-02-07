@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { LanguageSwitcher } from "../ui/LanguageSwitcher";
 import { Menu, Search, User } from "lucide-react";
 import { useState } from "react";
@@ -17,11 +18,14 @@ export function Header() {
                 <div className="container mx-auto px-4 md:px-6 lg:px-8 h-20 flex items-center justify-between">
                     {/* Logo Area */}
                     <Link href="/" className="flex items-center gap-3 group">
-                        <div className="bg-white p-1.5 rounded-lg shadow-md group-hover:scale-105 transition-transform">
-                            {/* Placeholder for Logo */}
-                            <div className="w-10 h-10 bg-secondary-gold rounded flex items-center justify-center font-bold text-primary-deep text-xl">
-                                AC
-                            </div>
+                        <div className="bg-white p-1 rounded-lg shadow-md group-hover:scale-105 transition-transform overflow-hidden">
+                            <Image
+                                src="/Logoch.png"
+                                alt="غرفة تجارة حلب"
+                                width={44}
+                                height={44}
+                                className="w-11 h-11 object-contain"
+                            />
                         </div>
                         <div className="flex flex-col">
                             <h1 className="text-lg md:text-xl font-bold font-arabic-heading leading-tight text-white group-hover:text-secondary-gold transition-colors">

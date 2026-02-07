@@ -1,18 +1,48 @@
-import { PageHeader } from "@/components/layout/PageHeader";
+"use client";
+
+import { use, Suspense } from "react";
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/Button";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { BadgeCheck, MapPin, Phone, Mail, Globe, Clock, Building2, Facebook, Twitter, Instagram, Share2 } from "lucide-react";
+import { QRCodeDisplay } from "@/components/directory/QRBusinessCard";
 
-export default async function CompanyDetailsPage({ params }: { params: Promise<{ id: string }> }) {
-    // Await params if needed for API calls later
-    const { id } = await params;
+// Dynamic import for map to avoid SSR issues
+const DirectoryMap = dynamic(
+    () => import("@/components/directory/DirectoryMap").then((mod) => mod.DirectoryMap),
+    {
+        ssr: false,
+        loading: () => (
+            <div className="h-64 rounded-xl bg-slate-100 animate-pulse flex items-center justify-center">
+                <MapPin className="w-8 h-8 text-slate-300" />
+            </div>
+        )
+    }
+);
 
-    // Mock company data (In a real app, verify ID with API)
-    const company = {
+// Mock company data (In a real app, fetch from API)
+const companiesData: Record<string, {
+    name: string;
+    description: string;
+    sector: string;
+    location: string;
+    lat: number;
+    lng: number;
+    phone: string;
+    email: string;
+    website: string;
+    isVerified: boolean;
+    rating: number;
+    workingHours: string;
+    products: string[];
+}> = {
+    "1": {
         name: "شركة النسيج العصرية",
         description: "تأسست شركة النسيج العصرية عام 1998م، وهي واحدة من الشركات الرائدة في مجال صناعة النسيج في سوريا. نتخصص في إنتاج الأقمشة القطنية عالية الجودة والممزوجة، ونصدر منتجاتنا إلى أكثر من 15 دولة حول العالم. نمتلك أحدث خطوط الإنتاج الألمانية واليابانية، ونلتزم بأعلى معايير الجودة والاستدامة البيئية.",
         sector: "صناعة النسيج",
         location: "المنطقة الصناعية - الشيخ نجار، الفئة الثالثة، مقسم 421",
+        lat: 36.2534,
+        lng: 37.0872,
         phone: "+963 21 444 5555",
         email: "info@modern-textile.sy",
         website: "www.modern-textile.sy",
@@ -20,7 +50,41 @@ export default async function CompanyDetailsPage({ params }: { params: Promise<{
         rating: 4.8,
         workingHours: "08:00 ص - 05:00 م",
         products: ["أقمشة قطنية 100%", "أقمشة بوليستر", "خيوط ممزوجة", "منسوجات منزلية"],
-    };
+    },
+};
+
+// Default company for IDs not in our data
+const defaultCompany = {
+    name: "شركة نموذجية",
+    description: "هذه شركة نموذجية لعرض تفاصيل الشركات في دليل غرفة تجارة حلب. تقدم الشركة خدمات متنوعة ومنتجات عالية الجودة.",
+    sector: "قطاع متنوع",
+    location: "حلب، سوريا",
+    lat: 36.2,
+    lng: 37.13,
+    phone: "+963 21 000 0000",
+    email: "info@example.sy",
+    website: "www.example.sy",
+    isVerified: false,
+    rating: 4.0,
+    workingHours: "09:00 ص - 05:00 م",
+    products: ["منتج 1", "منتج 2", "منتج 3"],
+};
+
+export default function CompanyDetailsPage({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = use(params);
+    const company = companiesData[id] || defaultCompany;
+    const companyId = parseInt(id) || 1;
+
+    const mapCompanies = [{
+        id: companyId,
+        name: company.name,
+        sector: company.sector,
+        location: company.location,
+        lat: company.lat,
+        lng: company.lng,
+        isVerified: company.isVerified,
+        rating: company.rating,
+    }];
 
     return (
         <div className="min-h-screen bg-bg-surface pb-20">
@@ -138,10 +202,25 @@ export default async function CompanyDetailsPage({ params }: { params: Promise<{
                             </div>
                         </GlassCard>
 
-                        {/* Map Placeholder */}
-                        <div className="h-64 rounded-xl bg-slate-200 w-full flex items-center justify-center text-slate-400 border border-slate-300">
-                            <MapPin className="w-8 h-8 mb-2" />
-                            <span className="block">خريطة الموقع</span>
+                        {/* QR Code */}
+                        <QRCodeDisplay companyId={companyId} companyName={company.name} />
+
+                        {/* Interactive Map */}
+                        <div className="rounded-xl overflow-hidden">
+                            <h3 className="font-bold text-primary-deep mb-3">الموقع على الخريطة</h3>
+                            <Suspense fallback={
+                                <div className="h-64 rounded-xl bg-slate-100 animate-pulse flex items-center justify-center">
+                                    <MapPin className="w-8 h-8 text-slate-300" />
+                                </div>
+                            }>
+                                <div className="h-64">
+                                    <DirectoryMap
+                                        companies={mapCompanies}
+                                        center={[company.lat, company.lng]}
+                                        zoom={15}
+                                    />
+                                </div>
+                            </Suspense>
                         </div>
                     </div>
                 </div>
