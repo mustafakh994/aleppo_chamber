@@ -23,12 +23,12 @@ export function Calendar({
                 month: "space-y-4",
                 caption: "flex justify-center pt-1 relative items-center",
                 caption_label: "text-sm font-bold text-primary-deep font-arabic-heading",
-                nav: "space-x-1 flex items-center", // Removed bg-transparent which was redundant
+                nav: "space-x-1 flex items-center",
                 nav_button: cn(
                     "h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100 transition-opacity hover:bg-slate-100 rounded-full flex items-center justify-center text-primary-deep border border-slate-200"
                 ),
-                nav_button_previous: "absolute left-1 rtl:left-auto rtl:right-1 transform rtl:rotate-180",
-                nav_button_next: "absolute right-1 rtl:right-auto rtl:left-1 transform rtl:rotate-180",
+                nav_button_previous: "absolute left-1 rtl:left-auto rtl:right-1",
+                nav_button_next: "absolute right-1 rtl:right-auto rtl:left-1",
                 table: "w-full border-collapse space-y-1",
                 head_row: "flex",
                 head_cell:
@@ -51,8 +51,12 @@ export function Calendar({
                 ...classNames,
             }}
             components={{
-                IconLeft: ({ ...props }) => <ChevronLeft className="h-4 w-4 rtl:rotate-180" />,
-                IconRight: ({ ...props }) => <ChevronRight className="h-4 w-4 rtl:rotate-180" />,
+                Chevron: ({ orientation }: { orientation?: "left" | "right" | "up" | "down" }) => {
+                    if (orientation === "left") {
+                        return <ChevronLeft className="h-4 w-4" />;
+                    }
+                    return <ChevronRight className="h-4 w-4" />;
+                },
             }}
             locale={ar}
             dir="rtl"
@@ -60,3 +64,4 @@ export function Calendar({
         />
     );
 }
+
