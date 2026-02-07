@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, MapPin, Phone, Globe, Linkedin, Twitter, Youtube, Facebook, Send } from "lucide-react";
 import { usePathname } from "next/navigation";
 
@@ -18,10 +19,14 @@ export function Footer() {
                     {/* Column 1: About */}
                     <div className="space-y-6">
                         <div className="flex items-center gap-3">
-                            <div className="bg-white p-1 rounded shadow-sm">
-                                <div className="w-8 h-8 bg-secondary-gold rounded flex items-center justify-center font-bold text-primary-deep text-lg">
-                                    AC
-                                </div>
+                            <div className="bg-white p-1 rounded shadow-sm overflow-hidden">
+                                <Image
+                                    src="/Logoch.png"
+                                    alt="غرفة تجارة حلب"
+                                    width={36}
+                                    height={36}
+                                    className="w-9 h-9 object-contain"
+                                />
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-lg font-bold font-arabic-heading">غرفة تجارة حلب</span>
