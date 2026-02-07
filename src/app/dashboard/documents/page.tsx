@@ -9,7 +9,7 @@ export default function DocumentsPage() {
             <div className="flex justify-between items-center">
                 <SectionHeading
                     title="المستندات"
-                    description="أرشيف الوثائق الرسمية والشهادات."
+                    subtitle="أرشيف الوثائق الرسمية والشهادات."
                 />
                 <Button>
                     <Upload className="w-4 h-4 ml-2" />

@@ -9,7 +9,7 @@ export default function PaymentsPage() {
             <div className="flex justify-between items-center">
                 <SectionHeading
                     title="الدفعات المالية"
-                    description="سجل المدفوعات والرسوم المستحقة."
+                    subtitle="سجل المدفوعات والرسوم المستحقة."
                 />
             </div>
 

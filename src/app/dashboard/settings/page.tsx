@@ -17,7 +17,7 @@ export default function SettingsPage() {
         <div className="space-y-8">
             <SectionHeading
                 title="الإعدادات"
-                description="تخصيص تفضيلات الحساب والإشعارات والأمان."
+                subtitle="تخصيص تفضيلات الحساب والإشعارات والأمان."
             />
 
             <div className="space-y-6">

@@ -10,7 +10,7 @@ export default function RequestsPage() {
             <div className="flex justify-between items-center">
                 <SectionHeading
                     title="طلباتي"
-                    description="متابعة حالة الطلبات المقدمة للغرفة."
+                    subtitle="متابعة حالة الطلبات المقدمة للغرفة."
                 />
                 <Link href="/services/certificate">
                     <Button>
@@ -29,8 +29,8 @@ export default function RequestsPage() {
                         <div className="flex items-center justify-between flex-wrap gap-4">
                             <div className="flex items-center gap-4">
                                 <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${req.status === 'completed' ? 'bg-green-100 text-green-600' :
-                                        req.status === 'pending' ? 'bg-blue-100 text-blue-600' :
-                                            'bg-orange-100 text-orange-600'
+                                    req.status === 'pending' ? 'bg-blue-100 text-blue-600' :
+                                        'bg-orange-100 text-orange-600'
                                     }`}>
                                     <FileText className="w-6 h-6" />
                                 </div>
@@ -42,8 +42,8 @@ export default function RequestsPage() {
 
                             <div className="flex items-center gap-4">
                                 <span className={`px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1.5 ${req.status === 'completed' ? 'bg-green-50 text-green-700' :
-                                        req.status === 'pending' ? 'bg-blue-50 text-blue-700' :
-                                            'bg-orange-50 text-orange-700'
+                                    req.status === 'pending' ? 'bg-blue-50 text-blue-700' :
+                                        'bg-orange-50 text-orange-700'
                                     }`}>
                                     {req.status === 'completed' ? <CheckCircle className="w-4 h-4" /> : <Clock className="w-4 h-4" />}
                                     {req.statusText}

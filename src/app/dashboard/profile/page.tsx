@@ -9,7 +9,7 @@ export default function ProfilePage() {
             <div className="flex justify-between items-center">
                 <SectionHeading
                     title="ملفي الشخصي"
-                    description="إدارة معلوماتك الشخصية وبيانات الشركة المسجلة لدينا."
+                    subtitle="إدارة معلوماتك الشخصية وبيانات الشركة المسجلة لدينا."
                 />
                 <Button>
                     تعديل البيانات
