@@ -1,5 +1,6 @@
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Button } from "@/components/ui/Button";
+import { DigitalCard } from "@/components/dashboard/DigitalCard";
 import {
     Activity,
     Clock,
@@ -7,32 +8,60 @@ import {
     AlertCircle,
     TrendingUp,
     Plus,
-    ArrowUpRight
+    ArrowUpRight,
+    Download,
+    Share2
 } from "lucide-react";
 
 export default function DashboardPage() {
     return (
         <div className="space-y-8">
-            {/* Value Proposition / Welcome */}
-            <div className="bg-primary-deep rounded-2xl p-8 text-white relative overflow-hidden shadow-xl">
-                <div className="relative z-10">
-                    <h1 className="text-3xl font-bold font-arabic-heading mb-2">مرحباً بك، شركة النسيج العصرية</h1>
-                    <p className="text-slate-300 max-w-xl text-lg opacity-90">
-                        لوحة التحكم الخاصة بك لإدارة عضويتك، متابعة طلباتك، والاطلاع على أحدث الفرص الاستثمارية.
-                    </p>
-                    <div className="mt-8 flex gap-4">
-                        <Button className="bg-secondary-gold text-white hover:bg-secondary-light border-none shadow-lg shadow-secondary-gold/20">
-                            <Plus className="w-5 h-5 ml-2" />
-                            طلب جديد
-                        </Button>
-                        <Button variant="outline" className="text-white border-white/20 hover:bg-white/10 hover:text-white">
-                            عرض الملف الشخصي
-                        </Button>
+            {/* Welcome & Digital Card Section */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                {/* Welcome Message */}
+                <div className="lg:col-span-2 bg-primary-deep rounded-2xl p-8 text-white relative overflow-hidden shadow-xl flex flex-col justify-center">
+                    <div className="relative z-10">
+                        <h1 className="text-3xl font-bold font-arabic-heading mb-2">مرحباً بك، شركة النسيج العصرية</h1>
+                        <p className="text-slate-300 max-w-xl text-lg opacity-90 mb-8">
+                            لوحة التحكم الخاصة بك لإدارة عضويتك، متابعة طلباتك، والاطلاع على أحدث الفرص الاستثمارية.
+                        </p>
+                        <div className="flex flex-wrap gap-4">
+                            <Button className="bg-secondary-gold text-white hover:bg-secondary-light border-none shadow-lg shadow-secondary-gold/20">
+                                <Plus className="w-5 h-5 ml-2" />
+                                طلب جديد
+                            </Button>
+                            <Button variant="outline" className="text-white border-white/20 hover:bg-white/10 hover:text-white">
+                                عرض الملف الشخصي
+                            </Button>
+                        </div>
+                    </div>
+                    {/* Decorative Elements */}
+                    <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+                    <div className="absolute bottom-0 right-0 w-64 h-64 bg-secondary-gold/20 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+                </div>
+
+                {/* Digital Card Container */}
+                <div className="relative group">
+                    <DigitalCard
+                        memberName="أحمد محمد"
+                        companyName="شركة النسيج العصرية"
+                        membershipId="MR-2026-8921"
+                        sector="Textiles & Fabrics"
+                        issueDate="01/01/2026"
+                        expiryDate="31/12/2026"
+                        isActive={true}
+                    />
+                    <div className="flex justify-center gap-4 mt-6">
+                        <button className="flex items-center gap-2 text-slate-500 hover:text-primary-deep text-sm transition-colors">
+                            <Download className="w-4 h-4" />
+                            <span>Download PDF</span>
+                        </button>
+                        <button className="flex items-center gap-2 text-slate-500 hover:text-primary-deep text-sm transition-colors">
+                            <Share2 className="w-4 h-4" />
+                            <span>Share</span>
+                        </button>
                     </div>
                 </div>
-                {/* Decorative Elements */}
-                <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
-                <div className="absolute bottom-0 right-0 w-64 h-64 bg-secondary-gold/20 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
             </div>
 
             {/* Stats Grid */}
