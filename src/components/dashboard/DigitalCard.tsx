@@ -44,13 +44,13 @@ export function DigitalCard({
                         {/* Header */}
                         <div className="flex justify-between items-start">
                             <div className="flex items-center gap-3">
-                                <div className="bg-white/10 backdrop-blur p-1.5 rounded-lg border border-white/10">
+                                <div>
                                     <Image
                                         src="/Logoch.png"
                                         alt="Logo"
-                                        width={40}
-                                        height={40}
-                                        className="w-10 h-10 object-contain"
+                                        width={50}
+                                        height={50}
+                                        className="w-12 h-12 object-contain"
                                     />
                                 </div>
                                 <div>

@@ -19,13 +19,13 @@ export function Footer() {
                     {/* Column 1: About */}
                     <div className="space-y-6">
                         <div className="flex items-center gap-3">
-                            <div className="bg-white p-1 rounded shadow-sm overflow-hidden">
+                            <div className="overflow-hidden">
                                 <Image
                                     src="/Logoch.png"
                                     alt="غرفة تجارة حلب"
-                                    width={36}
-                                    height={36}
-                                    className="w-9 h-9 object-contain"
+                                    width={48}
+                                    height={48}
+                                    className="w-12 h-12 object-contain"
                                 />
                             </div>
                             <div className="flex flex-col">

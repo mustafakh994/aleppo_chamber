@@ -19,13 +19,13 @@ export function Header() {
                 <div className="container mx-auto px-4 md:px-6 lg:px-8 h-20 flex items-center justify-between">
                     {/* Logo Area */}
                     <Link href="/" className="flex items-center gap-3 group">
-                        <div className="bg-white p-1 rounded-lg shadow-md group-hover:scale-105 transition-transform overflow-hidden">
+                        <div className="group-hover:scale-105 transition-transform">
                             <Image
                                 src="/Logoch.png"
                                 alt="غرفة تجارة حلب"
-                                width={44}
-                                height={44}
-                                className="w-11 h-11 object-contain"
+                                width={60}
+                                height={60}
+                                className="w-14 h-14 object-contain"
                             />
                         </div>
                         <div className="flex flex-col">
