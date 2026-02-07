@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { LanguageSwitcher } from "../ui/LanguageSwitcher";
+import { ThemeToggle } from "../ui/ThemeToggle";
 import { Menu, Search, User } from "lucide-react";
 import { useState } from "react";
 
@@ -80,6 +81,9 @@ export function Header() {
                         </Link>
 
                         <div className="h-6 w-px bg-white/20 hidden md:block"></div>
+
+                        {/* Theme Toggle */}
+                        <ThemeToggle />
 
                         {/* Language Switcher */}
                         <LanguageSwitcher />

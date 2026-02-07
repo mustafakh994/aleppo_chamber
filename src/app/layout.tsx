@@ -4,6 +4,7 @@ import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ToastProvider } from "@/context/ToastContext";
 import { AuthProvider } from "@/context/AuthContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
@@ -48,19 +49,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl">
-      <body className={`${inter.variable} ${amiri.variable} ${tajawal.variable} ${ibmPlex.variable} font-sans bg-bg-surface`}>
-        <ToastProvider>
-          <AuthProvider>
-            <LanguageProvider>
-              <Header />
-              <main className="min-h-screen pt-20">
-                {children}
-              </main>
-              <ChatWidget />
-              <Footer />
-            </LanguageProvider>
-          </AuthProvider>
-        </ToastProvider>
+      <body className={`${inter.variable} ${amiri.variable} ${tajawal.variable} ${ibmPlex.variable} font-sans`}>
+        <ThemeProvider>
+          <ToastProvider>
+            <AuthProvider>
+              <LanguageProvider>
+                <Header />
+                <main className="min-h-screen pt-20">
+                  {children}
+                </main>
+                <ChatWidget />
+                <Footer />
+              </LanguageProvider>
+            </AuthProvider>
+          </ToastProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

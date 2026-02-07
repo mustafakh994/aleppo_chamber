@@ -104,10 +104,61 @@
   border-radius: 16px;
 }
 
+/* Light mode (default) */
+:root {
+  --bg-surface: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-dark: #0F172A;
+  --text-primary: #334155;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
+  --border-color: #E2E8F0;
+}
+
+/* Dark mode */
+.dark {
+  --bg-surface: #0F172A;
+  --bg-card: #1E293B;
+  --bg-dark: #020617;
+  --text-primary: #F1F5F9;
+  --text-secondary: #CBD5E1;
+  --text-muted: #64748B;
+  --border-color: #334155;
+}
+
 body {
-  background: var(--color-bg-surface);
-  color: var(--color-text-primary);
+  background: var(--bg-surface);
+  color: var(--text-primary);
   font-family: 'Jannat', var(--font-arabic-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode overrides for common elements */
+.dark .bg-white {
+  background-color: var(--bg-card) !important;
+}
+
+.dark .bg-bg-surface {
+  background-color: var(--bg-surface) !important;
+}
+
+.dark .text-slate-600,
+.dark .text-slate-700 {
+  color: var(--text-secondary) !important;
+}
+
+.dark .text-slate-500 {
+  color: var(--text-muted) !important;
+}
+
+.dark .border-slate-100,
+.dark .border-slate-200 {
+  border-color: var(--border-color) !important;
+}
+
+.dark .bg-slate-50,
+.dark .bg-slate-100 {
+  background-color: #1E293B !important;
 }
 
 /* Scrollbar styling for Webkit */
