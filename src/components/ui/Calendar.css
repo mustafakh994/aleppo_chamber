@@ -1,0 +1,165 @@
+/* Custom Calendar Styles */
+.react-calendar {
+    width: 100%;
+    max-width: 100%;
+    background: white;
+    border: none;
+    font-family: 'Tajawal', sans-serif;
+    line-height: 1.125em;
+    padding: 1rem;
+}
+
+.react-calendar--doubleView {
+    width: 700px;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer {
+    display: flex;
+    margin: -0.5em;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer>* {
+    width: 500%;
+    margin: 0.5em;
+}
+
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Navigation */
+.react-calendar__navigation {
+    display: flex;
+    height: 44px;
+    margin-bottom: 1.5rem;
+}
+
+.react-calendar__navigation button {
+    min-width: 44px;
+    background: none;
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1a202c;
+    /* primary-deep */
+    border-radius: 8px;
+}
+
+.react-calendar__navigation button:disabled {
+    background-color: #f0f0f0;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+    background-color: #f8fafc;
+}
+
+/* Month View */
+.react-calendar__month-view__weekdays {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8rem;
+    /* Slightly smaller to fit full words */
+    color: #0f172a;
+    /* Darker for better visibility */
+    margin-bottom: 0.5rem;
+}
+
+/* Target the weekday containers */
+.react-calendar__month-view__weekdays__weekday {
+    padding: 0.5em 0;
+    /* Removing horizontal padding to give text space */
+    overflow: visible;
+    /* Ensure text isn't clipped */
+}
+
+/* Target the abbr tag specifically to fix "cutted" or "dotted" look */
+.react-calendar__month-view__weekdays__weekday abbr {
+    text-decoration: none;
+    border-bottom: none;
+    cursor: default;
+    display: block;
+    width: 100%;
+    overflow: visible;
+    white-space: nowrap;
+    /* Prevent wrapping if that's the issue */
+}
+
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+/* Tiles (Days) */
+.react-calendar__tile {
+    max-width: 100%;
+    padding: 1.2rem 0.2rem;
+    /* Reduced horizontal padding */
+    background: none;
+    text-align: center;
+    line-height: 16px;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.react-calendar__tile:disabled {
+    background-color: #f0f0f0;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+    background-color: #e2e8f0;
+}
+
+/* Active/Selected State */
+.react-calendar__tile--now {
+    background: #f1f5f9;
+    color: #0f172a;
+    font-weight: bold;
+    border: 1px solid #c8a14b;
+    /* secondary-gold */
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+    background: #e2e8f0;
+}
+
+.react-calendar__tile--hasActive {
+    background: #c8a14b;
+}
+
+.react-calendar__tile--active {
+    background: #c8a14b !important;
+    /* secondary-gold */
+    color: white !important;
+    font-weight: bold;
+    box-shadow: 0 4px 6px -1px rgba(200, 161, 75, 0.3);
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+    background: #b08d3f;
+}
+
+/* Fix RTL Arrows if simple transform exists */
+[dir="rtl"] .react-calendar__navigation__prev-button,
+[dir="rtl"] .react-calendar__navigation__prev2-button,
+[dir="rtl"] .react-calendar__navigation__next-button,
+[dir="rtl"] .react-calendar__navigation__next2-button {
+    transform: rotate(180deg);
+}

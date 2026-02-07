@@ -1,0 +1,88 @@
+import { PartnerOpportunity } from "@/components/investment/PartnerCard";
+
+export const opportunities: PartnerOpportunity[] = [
+    {
+        id: "1",
+        title: "توسعة مصنع النسيج الحديث",
+        description: "دعوة لشراكة استراتيجية لتوسعة خطوط الإنتاج لتشمل الأقمشة التقنية المتطورة. المصنع يعمل منذ 1998 ويمتلك قاعدة عملاء واسعة في الأسواق المحلية والإقليمية. المشروع يهدف إلى إضافة خطي إنتاج جديدين لزيادة الطاقة الإنتاجية بنسبة 40%.",
+        location: "المدينة الصناعية - الشيخ نجار",
+        type: "partnership",
+        industry: "textile",
+        capital: "$1,200,000",
+        minInvestment: "$250,000",
+        progress: 65,
+        image: "https://images.unsplash.com/photo-1605218427368-35b81a3ddbd8?q=80&w=1770&auto=format&fit=crop",
+        tags: ["نسيج", "تصدير", "توسع"],
+        datePosted: "منذ يومين"
+    },
+    {
+        id: "2",
+        title: "مشروع الطاقة الشمسية للمنطقة الصناعية",
+        description: "مشروع استثماري لتوليد 5 ميغاواط لتغذية المنطقة الصناعية بالطاقة النظيفة بعقود طويلة الأمد مع المصانع المجاورة. المشروع يتميز بعائد استثماري مرتفع وفترة استرداد قصيرة نسبياً نظراً لارتفاع تكاليف الطاقة التقليدية.",
+        location: "ريف حلب الشمالي",
+        type: "investment",
+        industry: "energy",
+        capital: "$3,500,000",
+        minInvestment: "$500,000",
+        progress: 30,
+        image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1772&auto=format&fit=crop",
+        tags: ["طاقة متجددة", "بنية تحتية", "عقود طويلة الأمد"],
+        datePosted: "منذ أسبوع"
+    },
+    {
+        id: "3",
+        title: "سلسلة مطاعم حلب العريقة",
+        description: "فرصة امتياز تجاري (Franchise) لعلامة تجارية حلبية مسجلة لافتتاح فروع في المحافظات السورية والدول المجاورة. نقدم الدعم الكامل في التشغيل والتدريب والتسويق لضمان نجاح الشريك.",
+        location: "مركز المدينة",
+        type: "franchise",
+        industry: "food",
+        capital: "$400,000",
+        minInvestment: "$100,000",
+        progress: 80,
+        image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1770&auto=format&fit=crop",
+        tags: ["مطاعم", "ضيافة", "فرنشايز"],
+        datePosted: "جديد"
+    },
+    {
+        id: "4",
+        title: "مصنع تعليب المنتجات الزراعية",
+        description: "مطلوب تمويل لشراء خطوط تعليب حديثة لزيادة الطاقة التصديرية لزيت الزيتون والكونسروة. نمتلك عقود تصدير جاهزة للسوق الأوروبية ونحتاج لزيادة الطاقة الإنتاجية لتلبيتها.",
+        location: "الراموسة",
+        type: "investment",
+        industry: "food",
+        capital: "$600,000",
+        minInvestment: "$50,000",
+        progress: 45,
+        image: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?q=80&w=1770&auto=format&fit=crop",
+        tags: ["غذائية", "تصدير", "زراعة"],
+        datePosted: "منذ 3 أيام"
+    },
+    {
+        id: "5",
+        title: "تطبيق لوجستي للشحن الذكي",
+        description: "شركة ناشئة تبحث عن جولة استثمارية (Seed) لتطوير تطبيق يربط المصانع بشركات الشحن لتسهيل وخفض تكاليف النقل. الفريق المؤسس يضم خبرات تقنية ولوجستية سابقة.",
+        location: "حلب - الحاضنة التكنولوجية",
+        type: "investment",
+        industry: "tech",
+        capital: "$150,000",
+        minInvestment: "$25,000",
+        progress: 15,
+        image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1770&auto=format&fit=crop",
+        tags: ["تكنولوجيا", "لوجستيات", "شركة ناشئة"],
+        datePosted: "منذ شهر"
+    },
+    {
+        id: "6",
+        title: "إعادة إعمار مجمع تجاري",
+        description: "فرصة للمشاركة في إعادة تأهيل وتجهيز مجمع تجاري في الأسواق القديمة. العقار مملوك بالكامل ولدينا المخططات الهندسية والرخص اللازمة للبدء فوراً.",
+        location: "الأسواق القديمة",
+        type: "partnership",
+        industry: "construction",
+        capital: "$2,000,000",
+        minInvestment: "$200,000",
+        progress: 55,
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1770&auto=format&fit=crop",
+        tags: ["عقارات", "إعادة إعمار", "تراثي"],
+        datePosted: "منذ أسبوعين"
+    },
+];

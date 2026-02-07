@@ -1,26 +1,129 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Jannat Arabic Font */
+@font-face {
+  font-family: 'Jannat';
+  src: url('https://fonts.arabicfonts.net/fonts/jannat/jannat-regular.woff2') format('woff2'),
+    url('https://fonts.arabicfonts.net/fonts/jannat/jannat-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: 'Jannat';
+  src: url('https://fonts.arabicfonts.net/fonts/jannat/jannat-bold.woff2') format('woff2'),
+    url('https://fonts.arabicfonts.net/fonts/jannat/jannat-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  /* Primary Palette */
+  --color-primary-deep: #1E3A5F;
+  --color-primary-light: #2D4A6F;
+
+  /* Secondary Palette */
+  --color-secondary-gold: #C9A227;
+  --color-secondary-light: #D4B43A;
+
+  /* Accent Palette */
+  --color-accent-teal: #4ECDC4;
+  --color-accent-light: #6EDDD4;
+
+  /* Neutral Palette */
+  --color-bg-dark: #0F172A;
+  --color-bg-surface: #F8FAFC;
+
+  --color-text-primary: #334155;
+  --color-text-secondary: #64748B;
+  --color-text-muted: #94A3B8;
+
+  /* Semantic Colors */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #3B82F6;
+
+  /* Fonts */
+  --font-arabic-heading: var(--font-amiri), serif;
+  --font-arabic-body: var(--font-tajawal), sans-serif;
+  --font-latin: var(--font-inter), sans-serif;
+
+  /* Animations */
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-fade-in: fadeIn 1s ease-out;
+  --animate-bounce-slow: bounce 3s infinite;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Toast animation */
+  --animate-slide-in-left: slideInLeft 0.3s ease-out;
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }
 
+/* Glassmorphism Utility */
+@utility glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  border-radius: 16px;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  font-family: 'Jannat', var(--font-arabic-body);
+}
+
+/* Scrollbar styling for Webkit */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-light);
 }
